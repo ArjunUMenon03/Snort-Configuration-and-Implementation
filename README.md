@@ -119,7 +119,6 @@ Rule Syntax:
 Example Custom Rule:
 alert icmp any any -> $HOME_NET any (msg:"ICMP Packet Detected"; sid:1000001; rev:1;)
 
-text
 - Place all custom rules in `/etc/snort/rules/local.rules`.  
 - Use SIDs above 1,000,000 for custom rules.
 
@@ -156,7 +155,6 @@ sudo snort -Q --daq nfq --daq-var queue=0 -c /etc/snort/snort.conf
 4. Use `drop` rules in local.rules to block traffic instead of just alerting:
 drop tcp any any -> $HOME_NET 22 (msg:"SSH Blocked"; sid:1000002; rev:1;)
 
-text
 
 ---
 
@@ -178,12 +176,9 @@ text
 - Disable unused rule sets in `snort.conf` by commenting out unnecessary rules:
 #include $RULE_PATH/malware.rules
 
-text
 - Focus on custom rules relevant to your network.
 - Test configuration and monitor performance:**  
 sudo snort -T -c /etc/snort/snort.conf
-
-text
 
 ---
 
